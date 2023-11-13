@@ -1,34 +1,39 @@
 import random
 
 
-def generate_random_integer(min_value, max_value):
-    """Generates a random integer between min_value and max_value (inclusive)."""
+def function_A(min_value, max_value):
+    """Generate a random integer between min_value and max_value (inclusive)."""
     return random.randint(min_value, max_value)
 
 
-def generate_random_operator():
-    """Generates a random arithmetic operator (+, -, *)."""
+def function_B():
+    """Generate a random arithmetic operator (+, -, *)."""
     return random.choice(['+', '-', '*'])
 
 
-def calculate_result(num1, num2, operator):
-    """Calculates the result of the arithmetic operation specified by the given operator."""
-    expression = f"{num1} {operator} {num2}"
-    result = eval(expression)
+def function_C(n1, n2, operator):
+    """Calculate the result of the arithmetic operation specified by the given operator."""
+    expression = f"{n1} {operator} {n2}"
+    if operator == '+':
+        result = n1 + n2
+    elif operator == '-':
+        result = n1 - n2
+    else:
+        result = n1 * n2
     return expression, result
 
 
 def math_quiz():
-    """Conducts a math quiz game."""
+    """Conduct a math quiz game."""
     score, total_questions = 0, 3
 
     print("Welcome to the Math Quiz Game!")
     print("You will be presented with math problems, and you need to provide the correct answers.")
 
     for _ in range(total_questions):
-        num1, num2, operator = generate_random_integer(1, 10), generate_random_integer(1, 5), generate_random_operator()
+        n1, n2, operator = function_A(1, 10), function_A(1, 5), function_B()
 
-        problem, answer = calculate_result(num1, num2, operator)
+        problem, answer = function_C(n1, n2, operator)
         print(f"\nQuestion: {problem}")
 
         try:
