@@ -1,17 +1,17 @@
 import random
 
 
-def function_A(min_value, max_value):
+def function_a(min_value, max_value):
     """Generate a random integer between min_value and max_value (inclusive)."""
     return random.randint(min_value, max_value)
 
 
-def function_B():
+def function_b():
     """Generate a random arithmetic operator (+, -, *)."""
     return random.choice(['+', '-', '*'])
 
 
-def function_C(n1, n2, operator):
+def function_c(n1, n2, operator):
     """Calculate the result of the arithmetic operation specified by the given operator."""
     expression = f"{n1} {operator} {n2}"
     if operator == '+':
@@ -31,9 +31,9 @@ def math_quiz():
     print("You will be presented with math problems, and you need to provide the correct answers.")
 
     for _ in range(total_questions):
-        n1, n2, operator = function_A(1, 10), function_A(1, 5), function_B()
+        n1, n2, operator = function_a(1, 10), function_a(1, 5), function_b()
 
-        problem, answer = function_C(n1, n2, operator)
+        problem, answer = function_c(n1, n2, operator)
         print(f"\nQuestion: {problem}")
 
         try:
